@@ -1,4 +1,8 @@
+<script>
+    import {router} from "tinro";
 
+    const goPost = () => router.goto('/articles/post')
+</script>
 <!-- title -->
 <h1 class="text-center text-xl md:text-4xl px-6 py-12 bg-white">My posting</h1>
 <!-- /title -->
@@ -19,7 +23,7 @@
             </a>
 
             <h2 class="text-xl py-4">
-                <a href="#" class="text-black no-underline">제목</a>
+                <button  class="text-black no-underline" on:click={goPost}>제목</button>
             </h2>
 
             <p class="text-xs leading-normal">내용</p>
