@@ -1,15 +1,22 @@
 <script>
-    import {router} from "tinro";
+    import {router, meta} from "tinro";
 
+    const route = meta()
+    const url = route.url
+    const goHome = () => router.goto('/')
     const goArticles = () => router.goto('/articles')
 </script>
 <!-- navigation -->
 <nav class="w-full bg-white md:pt-0 px-6 shadow-lg relative z-20 border-t border-b border-gray-400">
     <div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
         <div class="w-full md:w-1/2 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
-            <a href="/" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400">Home</a>
+            <button class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400"
+            class:font-bold={url==='/home'}
+                    on:click={goHome}
+            >Home</button>
             <button class="px-2 md:pl-0 md:mr-3 md:pr-3
             text-gray-700 no-underline md:border-r border-gray-400"
+                    class:font-bold={url==='/articles'}
             on:click={goArticles}
             >Post</button>
             <button class="px-2 md:pl-0 md:mr-3 md:pr-3
